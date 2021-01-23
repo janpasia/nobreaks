@@ -63,8 +63,8 @@ def boxPlot(scaled_df, showfliers=True):
 if page == intro:
   col1, col2 = st.beta_columns(2)
   with col1:
-    insertBlankLines(15)
-    st.title("2015 Indicators for MOOE Budget Prioritization among Philippine Public Schools")
+    insertBlankLines(20)
+    st.title("K-means Clustering of MOOE Ratios to classify Philippine Public Schools in 2015")
   with col2:
     # Photo by Rasy Nak from Pexels (https://www.pexels.com/photo/close-up-photo-of-girl-holding-paper-893924/)
     image = Image.open("assets/intro1.jpg")
@@ -77,7 +77,7 @@ elif page == bground:
     image = Image.open("assets/bground1.jpg")
     st.image(image, use_column_width=True)
   with col2:
-    insertBlankLines(15)
+    insertBlankLines(20)
     st.subheader(bground)
     st.title("What ratios could the government use to better classify public schools to prioritize those that are in need?")
 
@@ -149,11 +149,19 @@ elif page == cluster:
 
 elif page == conclusion:
   st.title(conclusion)
-  st.subheader("Put subtitle here")
+  insertBlankLines(5)
+  st.subheader("Education")
+  st.header("What strategy would you recommend based on the clusters formed?")
+  st.subheader("- Deped should review MOOE budget allocation for schools in Cluster 0")
+  st.subheader("- Deped should identify which factors make the MOOE budget high for schools in Cluster 3")
+  insertBlankLines(12)
+  st.subheader("Machine Learning")
+  st.header("How can you improve your analysis?")
+  st.subheader("- Try different clustering methods other than k-means (e.g. hierarchical)")
+  st.subheader("- Separate non-outliers and outliers from the data set and create models for each set")
 
 elif page == team:
-  st.title(team)
-  st.header("Team No Breaks")
-  st.markdown("Mentored by Patrick Juan")
-  st.markdown("Gee-R, Nico, Pash, Tim")
+  st.title("Team No Breaks")
+  st.header("Mentored by Patrick Juan")
+  st.subheader("Gee-R, Nico, Pash, Tim")
 
