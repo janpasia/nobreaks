@@ -1,0 +1,5 @@
+Label,MOOE-student,MOOE-teacher,MOOE-room,Cluster Count,Elementary Percent,Secondary Percent
+Cluster 0,Low,Low,Low,31132,99.42,0.58
+Cluster 1,High,High,Mid,1047,76.12,23.88
+Cluster 2,Mid,Mid,High,9087,40.76,59.24
+Cluster 3,Outlier,Outlier,Outlier,5,0,100

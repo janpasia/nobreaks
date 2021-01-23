@@ -4,9 +4,6 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
-# import geopandas as gpd
-# import folium
-# from streamlit_folium import folium_static
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -79,7 +76,7 @@ elif page == bground:
   with col2:
     insertBlankLines(20)
     st.subheader(bground)
-    st.title("What ratios could the government use to better classify public schools to prioritize those that are in need?")
+    st.title("Using MOOE ratios, how can we group public schools and how can these clusters be used to improve MOOE allocation?")
 
 elif page == dataInfo:
   st.title(dataInfo)
@@ -128,6 +125,7 @@ elif page == cluster:
   st.header("Ratio of MOOE vs students, teachers, rooms")
   three_clusters = pd.read_csv('dataset/viz1.csv')
   four_clusters = pd.read_csv('dataset/viz2.csv')
+  insights = pd.read_csv('dataset/viz3.csv')
 
   st.subheader("3 Clusters with silhouette score of 0.582639")
   st.write(three_clusters['Cluster_Labels'].value_counts().to_frame())
@@ -135,14 +133,18 @@ elif page == cluster:
   st.subheader("4 Clusters with silhouette score of 0.565403")
   st.write(four_clusters['Cluster_Labels'].value_counts().to_frame())
 
-  insertBlankLines(20)
+  insertBlankLines(15)
   st.header("Visualization of the 4 Clusters")
   boxPlot(four_clusters, False)
+  st.subheader("Insights on the 4 Clusters")
+  st.write(insights)
 
-  insertBlankLines(20)
+  insertBlankLines(15)
   st.header("Visualization of the removal of Cluster 3")
   wo_outliers = four_clusters[four_clusters["Cluster_Labels"] != 3 ]
   boxPlot(wo_outliers, False)
+  st.subheader("Review of Insights Above")
+  st.write(insights)
 
   # Box plot of 4 clusters (MOOE ratios)
   # Box plot without cluster 3
